@@ -42,6 +42,14 @@ class ScoresController < ApplicationController
     render json: get_high_scores
   end
 
+  def cors_set_access_control_headers
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS'
+    headers['Access-Control-Allow-Headers'] = '*'
+    headers['Access-Control-Max-Age'] = "1728000"
+    headers['dataType'] = "json"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_score
@@ -49,6 +57,7 @@ class ScoresController < ApplicationController
     end
 
     def get_high_scores
+      cors_set_access_control_headers()
       all_scores = Score.all
       sorted_scores = all_scores.sort_by(&:player_score).reverse
       sorted_scores.first(5).to_json
