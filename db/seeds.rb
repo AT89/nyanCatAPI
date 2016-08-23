@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Score.destroy_all
-Score.create!(data)
 
 Score.create(name: 'Anh', player_score: '1000')
 Score.create(name: 'ZAnh', player_score: '3000')

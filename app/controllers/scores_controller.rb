@@ -15,8 +15,7 @@ class ScoresController < ApplicationController
 
   # POST /scores
   def create
-    @score = Score.new(score_params)
-
+    @score = Score.new(name: params[:name], player_score: params[:player_score])
     if @score.save
       render json: @score, status: :created, location: @score
     else
@@ -26,6 +25,7 @@ class ScoresController < ApplicationController
 
   # PATCH/PUT /scores/1
   def update
+    puts score_params
     if @score.update(score_params)
       render json: @score
     else
@@ -42,13 +42,7 @@ class ScoresController < ApplicationController
     render json: get_high_scores
   end
 
-  def cors_set_access_control_headers
-    headers['Access-Control-Allow-Origin'] = '*'
-    headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS'
-    headers['Access-Control-Allow-Headers'] = '*'
-    headers['Access-Control-Max-Age'] = "1728000"
-    headers['dataType'] = "json"
-  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -65,6 +59,6 @@ class ScoresController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def score_params
-      params.fetch(:score, {})
+      params.require(:score).permit!
     end
 end
