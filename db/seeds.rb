@@ -8,9 +8,9 @@
 
 Score.destroy_all
 
-# Score.create(name: 'Anh', player_score: '1000')
-# Score.create(name: 'ZAnh', player_score: '3000')
-# Score.create(name: 'Dad', player_score: '1050')
-# Score.create(name: 'Bugs', player_score: '2000')
-# Score.create(name: 'Rika', player_score: '3000')
-# Score.create(name: 'Jebuiz', player_score: '4000')
+Score.create(name: 'Anh', player_score: '1000')
+Score.create(name: 'ZAnh', player_score: '3000')
+Score.create(name: 'Dad', player_score: '1050')
+Score.create(name: 'Bugs', player_score: '2000')
+Score.create(name: 'Rika', player_score: '3000')
+Score.create(name: 'Jebuiz', player_score: '4000')
