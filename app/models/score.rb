@@ -1,6 +1,7 @@
 class Score < ApplicationRecord
   before_save { self.name = name.downcase.capitalize }
 
+  # rubular.com
   VALID_NAME_REGEX = /\A[a-zA-Z]{2,30}($|\s[a-zA-Z]{2,30})\z/i
 
   validates :name, length: { maximum: 20 }, format: { with: VALID_NAME_REGEX }, uniqueness: { case_sensitive: false }
@@ -21,5 +22,5 @@ private
       end #end if
     end #end enumerator
   end #end method
-  
+
 end #end class
