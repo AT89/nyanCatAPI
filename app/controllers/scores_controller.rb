@@ -24,19 +24,19 @@ class ScoresController < ApplicationController
   end
 
   # PATCH/PUT /scores/1
-  def update
-    puts score_params
-    if @score.update(score_params)
-      render json: @score
-    else
-      render json: @score.errors, status: :unprocessable_entity
-    end
-  end
+  # def update
+  #   puts score_params
+  #   if @score.update(score_params)
+  #     render json: @score
+  #   else
+  #     render json: @score.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   # DELETE /scores/1
-  def destroy
-    @score.destroy
-  end
+  # def destroy
+  #   @score.destroy
+  # end
 
   def high_scores
     render json: get_high_scores
